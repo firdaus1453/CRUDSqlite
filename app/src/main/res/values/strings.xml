@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Buku Catatan</string>
+    <string name="title_activity_main_nav_drawer">Buku Catatan</string>
+    <string name="navigation_drawer_open">Buka</string>
+    <string name="navigation_drawer_close">Tutup</string>
+    <string name="nav_header_title">Aplikasi Buku Catatan</string>
+    <string name="nav_header_subtitle">mfirdaus1453@gmail.com</string>
+    <string name="nav_header_desc">Menu Buku Catatan</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
