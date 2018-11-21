@@ -55,7 +55,8 @@ public class RecycleViewFragment extends Fragment {
     public static void getData() {
         // Membuat object database
         SQLiteDatabase readData = dbCatatan.getReadableDatabase();
-        Cursor cursor = readData.rawQuery("SELECT * FROM " + DBCatatan.MyColumns.namaTabel, null);
+        String query = "SELECT * FROM " + DBCatatan.MyColumns.namaTabel  + " ORDER BY ID_judul DESC";
+        Cursor cursor = readData.rawQuery(query, null);
 
         cursor.moveToFirst();
 
@@ -67,8 +68,7 @@ public class RecycleViewFragment extends Fragment {
 
     public static void doFilter(String s) {
 
-        dataList.clear();
-        getData();
+        doUpdate();
 
         mFilteredList = new ArrayList<>();
         s = s.toLowerCase();
@@ -84,5 +84,15 @@ public class RecycleViewFragment extends Fragment {
         Log.i("Isi mFiltered for", mFilteredList.toString());
         adapter.setFilter(mFilteredList);
 
+    }
+
+    public static void doUpdate(){
+        Log.i("doUpdate sebelum",dataList.toString());
+
+        dataList.clear();
+        getData();
+        adapter.notifyDataSetChanged();
+        Log.i("Masuk","Doupdate");
+        Log.i("doUpdate sesudah",dataList.toString());
     }
 }

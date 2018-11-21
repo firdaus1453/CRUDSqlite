@@ -4,17 +4,11 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class TambahActivity extends AppCompatActivity {
 
@@ -42,7 +36,9 @@ public class TambahActivity extends AppCompatActivity {
                 saveData();
                 Toast.makeText(getApplicationContext(), "Tersimpan", Toast.LENGTH_SHORT).show();
                 clearData();
-                startActivity(new Intent(TambahActivity.this, MainNavDrawerActivity.class));
+                Intent intent = new Intent(TambahActivity.this, MainNavDrawerActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 finish();
             }
         });
@@ -70,6 +66,4 @@ public class TambahActivity extends AppCompatActivity {
         setJudul = edtJudul.getText().toString();
         setIsi = edtIsi.getText().toString();
     }
-
-
 }
